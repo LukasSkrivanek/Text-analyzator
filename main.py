@@ -47,16 +47,22 @@ if not password in USERS[username]:
 print(SEPARATOR)
 # Text selection
 print(f"We have {len(TEXTS)} texts to be analyzed.")
-text_insertion = int(input(f"Enter a number of text 1 to {len(TEXTS)} ,you have selected: "))
+text_insertion = input(f"Enter a number of text 1 to {len(TEXTS)} ,you have selected: ")
 print(SEPARATOR)
-# Volba textu testing
-if text_insertion == 1:
+
+if not text_insertion.isdigit():
+    print("Number of text must be a number")
+    exit()
+elif int(text_insertion) == 1:
     text = str(TEXTS[0])
-elif text_insertion == 2:
+elif int(text_insertion) == 2:
     text = str(TEXTS[1])
-else:
+elif int(text_insertion) == 3:
     text = str(TEXTS[2])
-# Text analysis
+elif int(text_insertion) >= 4 or text_insertion == 0:
+    print("You have selected wrong number of text")
+    exit()
+#Text analysis
 words = 0
 lowercase = 0
 uppercase = 0
@@ -64,25 +70,20 @@ titlecase = 0
 number = 0
 number_count = 0
 
-text = text.replace(",", " ")
-text = text.replace(".", " ")
-text = text.replace("-", "")
 
-for word in text.split():
-    if word.isalpha() or word.isdigit() or word.isupper():
-        words += 1
-    if word.isupper() and word.isalpha():
+for word in text.strip(",.-").split():
+    words += 1
+    if word.isupper():
         uppercase += 1
-    if word.istitle() and word.isalpha():
+    if word.istitle():
         titlecase += 1
-    if word.islower() and word.isalpha():
+    if word.islower():
         lowercase += 1
-    if word.isdigit():
+    if word.isnumeric():
         number += 1
         # Sum of numbers
         word = float(word)
         number_count += word
-
 print(f"There are {words} words in the selected text.")
 print(f"There are {titlecase} titlecase words")
 print(f"There are {uppercase} uppercase words")
@@ -97,7 +98,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 pocet_slov = 0
@@ -107,7 +108,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 
@@ -118,7 +119,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 pocet_slov = 0
@@ -128,7 +129,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 
@@ -139,7 +140,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 
@@ -150,7 +151,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 
@@ -161,7 +162,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 pocet_slov = 0
@@ -171,7 +172,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 pocet_slov = 0
@@ -181,7 +182,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 
@@ -192,7 +193,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 pocet_slov = 0
@@ -202,7 +203,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 
@@ -213,7 +214,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 
 
@@ -224,7 +225,7 @@ for word in text.split():
     pocet_slov += 1
     new_word = word
 if pocet_slov > 0:
-  znak = len(new_word) * znak
+  znak = pocet_slov * znak
   print(len(new_word), znak, pocet_slov)
 print(SEPARATOR)
 # print(Sum of numbers)
